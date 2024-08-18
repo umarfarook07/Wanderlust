@@ -9,9 +9,9 @@ interface IBottomWarning {
 
 export const BottomWarning = memo(({ label, to, buttonText }:IBottomWarning) => {
     return (
-        <div className="py-2 text-base flex">
+        <div className="py-2 text-base text-center">
             <span>{label}</span>
-            <Link className="underline pl-1 cursor-pointer" to={to}>
+            <Link className=" pl-1 cursor-pointer text-skyBlue" to={to}>
                 {buttonText}
             </Link>
         </div>

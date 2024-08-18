@@ -13,7 +13,9 @@ export default {
         darkGray: '#181818',
         lightGray: '#F2F2F2',
         skyBlue: '#2F80ED',
-        warningBgColor:'#FCEFCA'
+        warningBgColor:'#FCEFCA',
+        facebookColor: '#475993',
+        creamColor:'#FEE265'
       }
     },
   },

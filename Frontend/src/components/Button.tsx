@@ -3,6 +3,7 @@ interface IButton {
     text: string;
     onClick: React.MouseEventHandler;
 }
+// TODO: Add hover effects
 export const Button = memo(({ text, onClick }: IButton) => {
     return (
         <div className='my-4'>
