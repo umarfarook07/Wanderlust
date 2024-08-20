@@ -1,15 +1,26 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
+
 interface IButton {
+    type?: 'button' | 'submit' | 'reset'; 
     text: string;
-    onClick: React.MouseEventHandler;
+    loading?: {
+        state: boolean;
+        message: string;
+    };
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-// TODO: Add hover effects
-export const Button = memo(({ text, onClick }: IButton) => {
+
+export const Button = memo(({ type = 'button', text, loading = { state: false, message: '' }, onClick }: IButton) => {
     return (
         <div className='my-4'>
-            <button className='bg-skyBlue w-full py-2 px-2 text-md rounded-md text-white' onClick={onClick}>
-                {text}
-            </button>   
+            <button
+                type={type} 
+                className='bg-skyBlue w-full py-2 px-2 text-md rounded-md text-white hover:bg-skyBlueDark transition-colors'
+                onClick={onClick}
+                disabled={loading.state}
+            >
+                {loading.state ? loading.message : text}
+            </button>
         </div>
-    )
+    );
 });

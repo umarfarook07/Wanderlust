@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthTemplate from '../components/AuthTemplate'
+import AuthTemplate from '../containers/AuthContainer'
 import CenterHeading from '../components/CenterHeading'
 import CentreSubHeading from '../components/CentreSubHeading'
 import Input from '../components/Input'
@@ -16,7 +16,7 @@ const ForgotPassword = () => {
             <Button text='Send Reset Link' onClick={() => {
                 navigate('/checkInbox')
             }} />
-            <BottomWarning label='By creating an account, you agree with our ' buttonText='Terms and Conditions and Privacy Statement.' to='/terms'/>
+            <BottomWarning label='By creating an account, you agree with our ' buttonText='Terms and Conditions and Privacy Statement.' to='/terms' />
         </AuthTemplate>
     )
 }

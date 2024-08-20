@@ -74,7 +74,7 @@ router.post('/signin', async (req: Request, res: Response) => {
         const isPasswordMathed: boolean = await bcrypt.compare(payload.password, isAdminExist.password);
         if (!isPasswordMathed) {
             return res.status(StatusCodes.BadRequest).json(
-                { message: 'Invalid Password' }
+                { message: 'Invalid Password Try Again..' }
             );
         }
         const token: string = jwt.sign({ adminId: isAdminExist._id }, jwt_key!);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ReactNode } from 'react'
 
-const AuthTemplate = ({ children }: { children: ReactNode }) => {
+const AuthContainer = ({ children }: { children: ReactNode }) => {
     return (
         <section className='flex justify-center'>
             <div className='w-[400px] h-screen flex flex-col'>
@@ -10,4 +10,4 @@ const AuthTemplate = ({ children }: { children: ReactNode }) => {
         </section>
     )
 }
-export default AuthTemplate
+export default AuthContainer

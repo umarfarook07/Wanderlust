@@ -1,6 +1,6 @@
 import React from 'react'
-
-const DividerWithText = () => {
+import { memo } from 'react'
+const DividerWithText = memo(() => {
   return (
       <div className="flex items-center justify-center w-full">
           <div className="flex-grow border-t border-gray-400"></div>
@@ -8,6 +8,5 @@ const DividerWithText = () => {
           <div className="flex-grow border-t border-gray-400"></div>
       </div>
   )
-}
-
+})
 export default DividerWithText

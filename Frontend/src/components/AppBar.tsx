@@ -1,25 +1,33 @@
 import { memo } from 'react';
-import Logo from './Logo'
+import Logo from './Logo';
 import NavBar from './NavBar';
 import { Button } from './Button';
-import { Navigate, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../CustomHooks/UseAuth';
 const AppBar = memo(() => {
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
+    const { authState, setAuthState } = useAuth();
+    const handleLogout = () => {
+        localStorage.removeItem('jwt_token');
+        setAuthState(prevState => ({ ...prevState, isAuth: false }));
+        navigate('/signin'); 
+    };
     return (
         <header className='flex justify-between px-2 py-1 pl-4 items-center'>
             <Logo />
             <NavBar items={['Home', 'Discover', 'Activities', 'About', 'Contact']} />
-            <div className='flex gap-3 mr-2'>
-                <Button text={'Register'} onClick={() => {
-                    Navigate('/signup');
-                }} />
-                <Button text={'Sign in'} onClick={() => {
-                    Navigate('/signin');
-                }} />
-            </div>
+            {!authState.isAuth ? (
+                <div className='flex gap-3 mr-2'>
+                    <Button text={'Register'} onClick={() => navigate('/signup')} />
+                    <Button text={'Sign in'} onClick={() => navigate('/signin')} />
+                </div>
+            ) : (
+                <div>
+                    <Button text={'Logout'} onClick={handleLogout} />
+                </div>
+            )}
         </header>
-    )
-})
+    );
+});
 
-export default AppBar
+export default AppBar;
